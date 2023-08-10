@@ -237,7 +237,7 @@ A continuación, podra verse una vista previa del resultado del flow, del ensamb
 
 ![](https://github.com/jesusbaheng/GuardianGas/blob/main/Imagenes/Screenshot%20from%202023-08-09%2018-45-41.png?raw=true)
 ![](https://github.com/jesusbaheng/GuardianGas/blob/main/Imagenes/IMG_20230728_212311.jpg?raw=true)
-![]()
+![](https://github.com/jesusbaheng/GuardianGas/blob/main/Imagenes/chatTelegram.png?raw=true)
 
 ## Evidencias 
 
