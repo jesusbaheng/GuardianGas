@@ -209,7 +209,7 @@ nodo template
 
 El circuito a realizar se hara de acuerdo al siguiente diagrama.
 
-- ![]()
+![](https://github.com/jesusbaheng/GuardianGas/blob/main/Imagenes/diagrama%20de%20conexion.png?raw=true)
 
 ### Para el programa de la ESP32
 
@@ -235,8 +235,8 @@ finalmente la consulta se podra realizar colocando el nombre asignado a su maqui
 
 A continuación, podra verse una vista previa del resultado del flow, del ensamble del circuito y el bot de telegram.
 
-![]()
-![]()
+![](https://github.com/jesusbaheng/GuardianGas/blob/main/Imagenes/Screenshot%20from%202023-08-09%2018-45-41.png?raw=true)
+![](https://github.com/jesusbaheng/GuardianGas/blob/main/Imagenes/IMG_20230728_212311.jpg?raw=true)
 ![]()
 
 ## Evidencias 
@@ -249,6 +249,6 @@ A continuación, podra verse una vista previa del resultado del flow, del ensamb
 # Créditos
 
 Desarrollado por Jesús Bahena
-- [Perfil de Facebook](https://www.facebook.com/jesus.bahenag/)
+- [Perfil de GitHub](https://github.com/jesusbaheng)
 Desarrollado por Luis Felipe Saldivar
-- []()
+- [Perfil de GitHub](https://github.com/FelipeSaldivarOrtiz)
