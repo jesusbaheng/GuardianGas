@@ -241,7 +241,7 @@ A continuación, podra verse una vista previa del resultado del flow, del ensamb
 
 ## Evidencias 
 
-[Youtube]()
+[Youtube](https://youtu.be/EcUepsirBcM)
 
 # Notas
 - Este repositorio cuenta con las instrucciones para crear el flow pero también incluye el archivo JSON resultante, así que solo tienes que importarlo a nodeRed y realizar las configuraciones necesarias.
