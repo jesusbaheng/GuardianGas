@@ -5,7 +5,7 @@ Proyecto sobre un detector de gas usando internet de las cosas
 
 En la era de la tecnologia como la que estamos viviendo, en la cual todo esta conectado gracias al IoT de manera inalambrica se ha facilitado el poder monitorear condiciones del entorno de manera remota, en este caso se busca crear un sistema de alarma, el cual advierta de un cambio considerable del nivel de Gas LP (Gas Licuado de Petroleo), el cual es de uso cotidiano en hogares y comercios. 
 
-El proposito de este proyecto es realizar un prototipo que detecte niveles peligrosos de gas LP los y poder alertar a aquellos que se encuentren en la zona de peligro, asi como emitir una alerta en caso de que no se encuentre nadie en dicha zona para poder tomar acciones, asi aumentando la seguridad al momento de usar este recurso.
+El proposito de este proyecto es realizar un prototipo que detecte niveles peligrosos de gas LP y poder alertar a aquellos que se encuentren en la zona de peligro, asi como emitir una alerta en caso de que no se encuentre nadie en dicha zona para poder tomar acciones, asi aumentando la seguridad al momento de usar este recurso.
 
 ## Material necesario
 
@@ -235,6 +235,7 @@ finalmente la consulta se podra realizar colocando el nombre asignado a su maqui
 
 A continuación, podra verse una vista previa del resultado del flow, del ensamble del circuito y el bot de telegram.
 
+![](https://github.com/jesusbaheng/GuardianGas/blob/main/Imagenes/WhatsApp%20Image%202023-08-05%20at%209.20.02%20PM.jpeg?raw=true)
 ![](https://github.com/jesusbaheng/GuardianGas/blob/main/Imagenes/Screenshot%20from%202023-08-09%2018-45-41.png?raw=true)
 ![](https://github.com/jesusbaheng/GuardianGas/blob/main/Imagenes/IMG_20230728_212311.jpg?raw=true)
 ![](https://github.com/jesusbaheng/GuardianGas/blob/main/Imagenes/chatTelegram.png?raw=true)
