@@ -1,0 +1,484 @@
+[
+    {
+        "id": "4eb928b4aead57e0",
+        "type": "tab",
+        "label": "Proyecto GuardianGas",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bfb23ede47758912",
+        "type": "mqtt in",
+        "z": "4eb928b4aead57e0",
+        "name": "",
+        "topic": "CodigoIoT/GuardianGas",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f1868b0174764182",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 120,
+        "wires": [
+            [
+                "37598f3b90360235",
+                "927813f8508db295"
+            ]
+        ]
+    },
+    {
+        "id": "37598f3b90360235",
+        "type": "json",
+        "z": "4eb928b4aead57e0",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 370,
+        "y": 120,
+        "wires": [
+            [
+                "927813f8508db295",
+                "215cbe80a46f784e"
+            ]
+        ]
+    },
+    {
+        "id": "927813f8508db295",
+        "type": "function",
+        "z": "4eb928b4aead57e0",
+        "name": "PPM",
+        "func": "msg.payload = msg.payload.ppm; \nmsg.topic = \"ppm\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 120,
+        "wires": [
+            [
+                "5f29c05238b7b7ff",
+                "8b733da76e5ba2fe",
+                "4c4400085649f07e"
+            ]
+        ]
+    },
+    {
+        "id": "d618f010763fc6e0",
+        "type": "mysql",
+        "z": "4eb928b4aead57e0",
+        "mydb": "85a45dd8e401143c",
+        "name": "",
+        "x": 750,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5f29c05238b7b7ff",
+        "type": "ui_gauge",
+        "z": "4eb928b4aead57e0",
+        "name": "",
+        "group": "8935e5672ddd5816",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "GAS LP",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "650",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 740,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8b733da76e5ba2fe",
+        "type": "ui_chart",
+        "z": "4eb928b4aead57e0",
+        "name": "",
+        "group": "c554432b4524b616",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Historico",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 740,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "215cbe80a46f784e",
+        "type": "function",
+        "z": "4eb928b4aead57e0",
+        "name": "Query",
+        "func": "msg.topic = \"INSERT INTO Cliente (nombre,PPM,status_ID) VALUES ('\" + msg.payload.id +\"',\" + msg.payload.ppm + \",\" + msg.payload.estado + \");\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 240,
+        "wires": [
+            [
+                "d618f010763fc6e0",
+                "988616e67aa6ab55"
+            ]
+        ]
+    },
+    {
+        "id": "988616e67aa6ab55",
+        "type": "debug",
+        "z": "4eb928b4aead57e0",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4c4400085649f07e",
+        "type": "debug",
+        "z": "4eb928b4aead57e0",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "9f27eb9a12863712",
+        "type": "ui_text_input",
+        "z": "4eb928b4aead57e0",
+        "name": "",
+        "label": "Introduzca el nombre del equipo",
+        "tooltip": "",
+        "group": "c554432b4524b616",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 170,
+        "y": 420,
+        "wires": [
+            [
+                "dff537c826df98f3"
+            ]
+        ]
+    },
+    {
+        "id": "5e8a35a40a3bc95f",
+        "type": "comment",
+        "z": "4eb928b4aead57e0",
+        "name": "Parte que se encarga de hacer registro en la DB",
+        "info": "",
+        "x": 220,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "cdbc954f50bd0d91",
+        "type": "comment",
+        "z": "4eb928b4aead57e0",
+        "name": "Consulta a la DB",
+        "info": "",
+        "x": 120,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "dff537c826df98f3",
+        "type": "function",
+        "z": "4eb928b4aead57e0",
+        "name": "NameGG",
+        "func": "global.set (\"NameGG\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bcefeca360c50817",
+        "type": "ui_button",
+        "z": "4eb928b4aead57e0",
+        "name": "",
+        "group": "c554432b4524b616",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Consultar",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 100,
+        "y": 520,
+        "wires": [
+            [
+                "57f4b2134ae4abe8"
+            ]
+        ]
+    },
+    {
+        "id": "57f4b2134ae4abe8",
+        "type": "function",
+        "z": "4eb928b4aead57e0",
+        "name": "Consultando",
+        "func": "msg.topic = \"SELECT c.fecha, c.nombre, c.PPM, s.estado FROM Cliente c INNER JOIN status s ON c.status_ID = s.id_status WHERE c.status_ID = 2 AND c.nombre = '\" + global.get(\"NameGG\") + \"' ORDER BY c.fecha DESC;\"; \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 520,
+        "wires": [
+            [
+                "f39477681f0597d0",
+                "396d9b4efc332ecd"
+            ]
+        ]
+    },
+    {
+        "id": "f39477681f0597d0",
+        "type": "mysql",
+        "z": "4eb928b4aead57e0",
+        "mydb": "85a45dd8e401143c",
+        "name": "",
+        "x": 570,
+        "y": 520,
+        "wires": [
+            [
+                "1b279ad6fe6c4177"
+            ]
+        ]
+    },
+    {
+        "id": "396d9b4efc332ecd",
+        "type": "debug",
+        "z": "4eb928b4aead57e0",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "c85c175c52764590",
+        "type": "ui_template",
+        "z": "4eb928b4aead57e0",
+        "group": "c554432b4524b616",
+        "name": "",
+        "order": 4,
+        "width": "11",
+        "height": "7",
+        "format": "<!--<div ng-bind-html=\"msg.payload\"></div>  Esto mostrara los arrays, haciendolo menos estetico-->\n    <table border=\"1\" style=\"width:100px; margin-left:auto;margin-right:auto\">\n        <tr>\n            <th>Fecha</th>\n            <th>Nombre</th>\n            <th>PPM</th>\n            <th>Estado</th>\n        </tr>\n        <tr ng-repeat=\"dato in msg.payload\">\n            <td> {{dato.fecha}}</td>\n            <td>{{dato.nombre}}</td>\n            <td>{{dato.PPM}}</td>\n            <td>{{dato.estado}}</td>\n        </tr>\n    </table>\n<style>\n    table{\n    backgrond-color:white;\n    width: 100%;\n    text-align:left;\n    border-collapse: collapse;\n    }\n    th, td{\n    padding: 10px;\n    }\n    tr:nth-child(even){\n    background-color:#D3D3D3;\n    }\n    tr:hover td{\n    backgrond-color:darkgray;\n    color:gray;\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 940,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1b279ad6fe6c4177",
+        "type": "json",
+        "z": "4eb928b4aead57e0",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 750,
+        "y": 520,
+        "wires": [
+            [
+                "c85c175c52764590"
+            ]
+        ]
+    },
+    {
+        "id": "2e48ecc10f037a8a",
+        "type": "ui_spacer",
+        "z": "4eb928b4aead57e0",
+        "name": "spacer",
+        "group": "69140d0c740b78cf",
+        "order": 2,
+        "width": 7,
+        "height": 1
+    },
+    {
+        "id": "f1868b0174764182",
+        "type": "mqtt-broker",
+        "z": "4eb928b4aead57e0",
+        "name": "Broker Público",
+        "broker": "",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "85a45dd8e401143c",
+        "type": "MySQLdatabase",
+        "z": "4eb928b4aead57e0",
+        "name": "",
+        "host": "mysql",
+        "port": "3306",
+        "db": "GuardianGas",
+        "tz": "-07:00",
+        "charset": "UTF8"
+    },
+    {
+        "id": "8935e5672ddd5816",
+        "type": "ui_group",
+        "name": "Indicador",
+        "tab": "a22cfb1920a9c9db",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c554432b4524b616",
+        "type": "ui_group",
+        "name": "Historico",
+        "tab": "a22cfb1920a9c9db",
+        "order": 1,
+        "disp": true,
+        "width": 14,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "69140d0c740b78cf",
+        "type": "ui_group",
+        "name": "Reconocimiento facial",
+        "tab": "f3c4a2974172cb0f",
+        "order": 2,
+        "disp": true,
+        "width": 14,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a22cfb1920a9c9db",
+        "type": "ui_tab",
+        "name": "GuardianGas",
+        "icon": "dashboard",
+        "order": 8,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f3c4a2974172cb0f",
+        "type": "ui_tab",
+        "name": "Apertura de puertas por reconocimiento facial",
+        "icon": "dashboard",
+        "order": 5,
+        "disabled": false,
+        "hidden": false
+    }
+]
